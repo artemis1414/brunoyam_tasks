@@ -1,5 +1,5 @@
-x = float('124')
-y = float('57.1')
+x = float(input())
+y = float(input())
 if x > y:
     max = x
 else:
