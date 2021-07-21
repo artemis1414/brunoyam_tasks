@@ -1,5 +1,5 @@
 x = input('Введите целое число: ')
 sum = 0
-for i in x:
-    sum += int(i)
+for digit in x:
+    sum += int(digit)
 print('Сумма цифр данного числа:', sum)
