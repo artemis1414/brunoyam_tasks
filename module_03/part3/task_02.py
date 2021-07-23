@@ -2,10 +2,7 @@ import re
 
 def search_small_words(string):
     my_list = re.split(r'\W', string)
-    small_words = []
-    for i in my_list:
-        if len(i) < 5 and i != '':
-            small_words.append(i)
+    small_words = [word for word in my_list if (len(word) < 5 and word != '')]
     return small_words
 
 
