@@ -1,4 +1,4 @@
-def Insertion_sort(my_list):
+def insertion_sort(my_list):
     for index in range(1, len(my_list)):
         current_element = my_list[index]
         previous_index = index - 1
@@ -9,6 +9,6 @@ def Insertion_sort(my_list):
     return my_list
 
 
-list = [456, 700, 200, 100, 594, 563, 1038, 32, 459, 67430, 5764, 863, 7548, 1234, 2947, 212, 54, 723, 2124]
+list_of_number = [456, 700, 200, 100, 594, 563, 1038, 32, 459, 67430, 5764, 863, 7548, 1234, 2947, 212, 54, 723, 2124]
 
-print(Insertion_sort(list))
+print(insertion_sort(list_of_number))
