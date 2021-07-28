@@ -8,10 +8,10 @@ def binary_search(my_list, x):
         elif my_list[middle] < x:
             start = middle + 1
         elif my_list[middle] == x:
-            return True
+            return middle
     else:
         return None
 
 
-list = [x * x for x in range(10)]
-print(binary_search(list, 8))
+my_list_number = [x * x for x in range(10)]
+print(binary_search(my_list_number, 9))
