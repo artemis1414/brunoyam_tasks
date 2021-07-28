@@ -12,7 +12,7 @@ class Model:
         for attr in attributes:
             dictionary[attr] = getattr(self, attr)
         with open('db.json', mode='w') as f:
-            f.write(json.dumps(dictionary))
+            json.dump(dictionary, f, indent=4, ensure_ascii=False)
 
 
 dat = Model()

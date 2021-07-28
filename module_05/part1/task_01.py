@@ -3,16 +3,17 @@
 class StringVar:
 
     def __init__(self, string):
-        self.string = string
+        self.__string = string
 
-    def set(self):
-        self.string = input('Введите измененную строку: ')
-        return self.string
+    def set(self, string):
+        self.__string = string
+        return self.__string
 
     def get(self):
-        return self.string
+        return self.__string
 
 
 s = StringVar(input('Введите строку: '))
-print(s.set())
 print(s.get())
+print(s.set('new string'))
+

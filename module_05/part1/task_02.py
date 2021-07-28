@@ -12,7 +12,7 @@ class Point:
         return Point(self.x - other.x, self.y - other.y)
 
     def __mul__(self, other):
-        return Point(self.x * other.x, self.y * other.y)
+        return self.x * other.x + self.y * other.y
 
     def scalar(self, c):
         return Point(self.x * c, self.y * c)
