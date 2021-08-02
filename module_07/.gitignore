@@ -1,3 +1,2 @@
 venv
-__pycache__
-parser_01.cpython-39.pyc
+*.pyc
