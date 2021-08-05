@@ -45,14 +45,14 @@ students_age_30 = cur.execute("""SELECT
 students_python = cur.execute("""SELECT 
                                     Students.name, Courses.name  
                                 FROM 
-                                    Students, Courses, Student_courses 
+                                    Students, Courses, Students_courses 
                                 WHERE 
                                     courses_id = Courses.id = 1 and student_id = Students.id"""
                               ).fetchall()
 students_spb_p = cur.execute("""SELECT 
                                     Students.name, Courses.name, Students.city  
                                 FROM 
-                                    Students, Courses, Student_courses 
+                                    Students, Courses, Students_courses 
                                 WHERE 
                                     courses_id = Courses.id = 1 and student_id = Students.id and Students.city = 'Spb'"""
                              ).fetchall()
