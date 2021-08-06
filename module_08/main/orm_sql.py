@@ -1,6 +1,13 @@
 import sqlite3
 
 
+def commited(func):
+    def decorator(*args, **kwargs):
+        func(*args, **kwargs)
+        args[0].con.commit()
+    return decorator
+
+
 class Base:
 
     def __init__(self, name_db):
@@ -8,6 +15,7 @@ class Base:
         self.con = sqlite3.connect(self.db)
         self.cur = self.con.cursor()
 
+    @commited
     def create(self, name_table, **kwargs):
         list_columns = []
         if 'FOREIGN' in kwargs:
@@ -17,9 +25,7 @@ class Base:
             del kwargs['FOREIGN']
         for key, value in kwargs.items():
             list_columns.append(' '.join([key, value]))
-
         self.cur.execute(f"CREATE TABLE IF NOT EXISTS {name_table} ({', '.join(list_columns)})")
-        self.con.commit()
 
     def select(self, table, fields, where=None):
         if not where:
@@ -28,9 +34,9 @@ class Base:
             request = self.cur.execute(f"SELECT {', '.join(fields)} FROM {', '.join(table)} WHERE {where}")
         return request.fetchall()
 
+    @commited
     def insert(self, table, *args):
         self.cur.executemany(f"INSERT INTO {table} VALUES ({' ,'.join(['?' for _ in range(len(args[0]))])})", list(args))
-        self.con.commit()
 
     def close(self):
         self.con.close()
