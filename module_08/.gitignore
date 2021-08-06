@@ -1,3 +1,4 @@
 venv
 __pycache__
 orm_sql.cpython-39
+*.db
