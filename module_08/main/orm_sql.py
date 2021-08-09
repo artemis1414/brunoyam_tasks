@@ -1,13 +1,5 @@
 import sqlite3
 
-
-def commited(func):
-    def decorator(*args, **kwargs):
-        func(*args, **kwargs)
-        args[0].con.commit()
-    return decorator
-
-
 class Base:
 
     def __init__(self, name_db):
@@ -15,6 +7,12 @@ class Base:
         self.con = sqlite3.connect(self.db)
         self.cur = self.con.cursor()
 
+    def commited(func):
+        def decorator(*args, **kwargs):
+            func(*args, **kwargs)
+            args[0].con.commit()
+
+        return decorator
     @commited
     def create(self, name_table, **kwargs):
         list_columns = []
