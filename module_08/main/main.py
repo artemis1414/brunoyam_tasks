@@ -1,6 +1,7 @@
 from orm_sql import Base
+import os
 
-db = Base('database_student.db')
+db = Base(os.environ['Base'])
 db.create('Students', id='INTEGER PRIMARY KEY',  name='VarChar(32)', surname='VarChar(32)', age='int',
           city='VarChar(32)')
 db.create('Courses', id='INTEGER PRIMARY KEY',  name='VarChar(32)', timestart='text', time_end='text')
